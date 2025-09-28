@@ -11,6 +11,7 @@ document.addEventListener('DOMContentLoaded', function() {
     initializeScrollEffects();
     initializeParallax();
     initializeImageLoading();
+    initializeQuoteAnimations();
     initializeContactAnimations();
 });
 
@@ -253,6 +254,108 @@ function initializeNavigation() {
             });
         });
     });
+}
+
+// Enhanced Quote and Mission Animations
+function initializeQuoteAnimations() {
+    const quoteSection = document.querySelector('.quote-section');
+    const missionStatement = document.querySelector('.mission-statement');
+    
+    // Quote section animation
+    if (quoteSection) {
+        gsap.fromTo(quoteSection, 
+            {
+                opacity: 0,
+                y: 100,
+                scale: 0.8
+            },
+            {
+                opacity: 1,
+                y: 0,
+                scale: 1,
+                duration: 1.2,
+                ease: 'power3.out',
+                scrollTrigger: {
+                    trigger: quoteSection,
+                    start: 'top 80%',
+                    toggleActions: 'play none none reverse'
+                }
+            }
+        );
+        
+        // Animate quote text word by word
+        const quoteText = quoteSection.querySelector('.quote-text');
+        if (quoteText) {
+            const words = quoteText.textContent.split(' ');
+            quoteText.innerHTML = words.map(word => `<span class="word">${word}</span>`).join(' ');
+            
+            gsap.fromTo(quoteText.querySelectorAll('.word'), 
+                {
+                    opacity: 0,
+                    y: 20,
+                    rotationX: 90
+                },
+                {
+                    opacity: 1,
+                    y: 0,
+                    rotationX: 0,
+                    duration: 0.6,
+                    stagger: 0.1,
+                    ease: 'power2.out',
+                    scrollTrigger: {
+                        trigger: quoteText,
+                        start: 'top 85%',
+                        toggleActions: 'play none none reverse'
+                    }
+                }
+            );
+        }
+    }
+    
+    // Mission statement animation
+    if (missionStatement) {
+        gsap.fromTo(missionStatement, 
+            {
+                opacity: 0,
+                y: 80,
+                scale: 0.9
+            },
+            {
+                opacity: 1,
+                y: 0,
+                scale: 1,
+                duration: 1,
+                ease: 'power3.out',
+                scrollTrigger: {
+                    trigger: missionStatement,
+                    start: 'top 80%',
+                    toggleActions: 'play none none reverse'
+                }
+            }
+        );
+        
+        // Animate mission title with typewriter effect
+        const missionTitle = missionStatement.querySelector('.mission-title');
+        if (missionTitle) {
+            const text = missionTitle.textContent;
+            missionTitle.textContent = '';
+            
+            gsap.to(missionTitle, {
+                duration: 2,
+                ease: 'power2.out',
+                onUpdate: function() {
+                    const progress = this.progress();
+                    const currentLength = Math.floor(text.length * progress);
+                    missionTitle.textContent = text.substring(0, currentLength);
+                },
+                scrollTrigger: {
+                    trigger: missionTitle,
+                    start: 'top 85%',
+                    toggleActions: 'play none none reverse'
+                }
+            });
+        }
+    }
 }
 
 // Enhanced Contact Section Animations
