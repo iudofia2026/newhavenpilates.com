@@ -11,6 +11,7 @@ document.addEventListener('DOMContentLoaded', function() {
     initializeScrollEffects();
     initializeParallax();
     initializeImageLoading();
+    initializeContactAnimations();
 });
 
 // Hero Section Animations
@@ -247,6 +248,91 @@ function initializeNavigation() {
         
         link.addEventListener('mouseleave', () => {
             gsap.to(link, {
+                duration: 0.3,
+                ease: 'power2.out'
+            });
+        });
+    });
+}
+
+// Enhanced Contact Section Animations
+function initializeContactAnimations() {
+    const contactCards = document.querySelectorAll('.contact-card');
+    const contactIcons = document.querySelectorAll('.icon-circle');
+    
+    // Staggered animation for contact cards
+    gsap.fromTo(contactCards, 
+        {
+            opacity: 0,
+            y: 50,
+            scale: 0.9
+        },
+        {
+            opacity: 1,
+            y: 0,
+            scale: 1,
+            duration: 0.8,
+            stagger: 0.2,
+            ease: 'power3.out',
+            scrollTrigger: {
+                trigger: '.contact-info-section',
+                start: 'top 80%',
+                toggleActions: 'play none none reverse'
+            }
+        }
+    );
+    
+    // Enhanced icon animations
+    contactIcons.forEach((icon, index) => {
+        gsap.fromTo(icon, 
+            {
+                scale: 0,
+                rotation: -180
+            },
+            {
+                scale: 1,
+                rotation: 0,
+                duration: 0.6,
+                delay: 0.3 + (index * 0.2),
+                ease: 'back.out(1.7)',
+                scrollTrigger: {
+                    trigger: icon,
+                    start: 'top 85%',
+                    toggleActions: 'play none none reverse'
+                }
+            }
+        );
+    });
+    
+    // Contact card hover effects
+    contactCards.forEach(card => {
+        card.addEventListener('mouseenter', () => {
+            gsap.to(card, {
+                y: -8,
+                scale: 1.02,
+                duration: 0.3,
+                ease: 'power2.out'
+            });
+            
+            gsap.to(card.querySelector('.icon-circle'), {
+                scale: 1.1,
+                rotation: 5,
+                duration: 0.3,
+                ease: 'power2.out'
+            });
+        });
+        
+        card.addEventListener('mouseleave', () => {
+            gsap.to(card, {
+                y: 0,
+                scale: 1,
+                duration: 0.3,
+                ease: 'power2.out'
+            });
+            
+            gsap.to(card.querySelector('.icon-circle'), {
+                scale: 1,
+                rotation: 0,
                 duration: 0.3,
                 ease: 'power2.out'
             });
