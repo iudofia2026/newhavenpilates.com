@@ -399,26 +399,76 @@ function initializeQuoteAnimations() {
             }
         );
         
-        // Animate mission title with typewriter effect
+        // Animate mission icon with elegant entrance
+        const missionIcon = missionStatement.querySelector('.mission-icon');
+        if (missionIcon) {
+            gsap.fromTo(missionIcon, 
+                {
+                    opacity: 0,
+                    scale: 0.5,
+                    rotation: -10
+                },
+                {
+                    opacity: 1,
+                    scale: 1,
+                    rotation: 0,
+                    duration: 1,
+                    ease: 'power3.out',
+                    scrollTrigger: {
+                        trigger: missionIcon,
+                        start: 'top 85%',
+                        toggleActions: 'play none none reverse'
+                    }
+                }
+            );
+        }
+        
+        // Animate mission title with elegant fade-in and scale
         const missionTitle = missionStatement.querySelector('.mission-title');
         if (missionTitle) {
-            const text = missionTitle.textContent;
-            missionTitle.textContent = '';
-            
-            gsap.to(missionTitle, {
-                duration: 2,
-                ease: 'power2.out',
-                onUpdate: function() {
-                    const progress = this.progress();
-                    const currentLength = Math.floor(text.length * progress);
-                    missionTitle.textContent = text.substring(0, currentLength);
+            gsap.fromTo(missionTitle, 
+                {
+                    opacity: 0,
+                    y: 30,
+                    scale: 0.95
                 },
-                scrollTrigger: {
-                    trigger: missionTitle,
-                    start: 'top 85%',
-                    toggleActions: 'play none none reverse'
+                {
+                    opacity: 1,
+                    y: 0,
+                    scale: 1,
+                    duration: 1.2,
+                    ease: 'power3.out',
+                    delay: 0.3,
+                    scrollTrigger: {
+                        trigger: missionTitle,
+                        start: 'top 85%',
+                        toggleActions: 'play none none reverse'
+                    }
                 }
-            });
+            );
+        }
+        
+        // Animate mission description with elegant fade-in
+        const missionDescription = missionStatement.querySelector('.mission-description');
+        if (missionDescription) {
+            gsap.fromTo(missionDescription, 
+                {
+                    opacity: 0,
+                    y: 20
+                },
+                {
+                    opacity: 0.8,
+                    y: 0,
+                    duration: 1,
+                    ease: 'power3.out',
+                    delay: 0.6,
+                    scrollTrigger: {
+                        trigger: missionDescription,
+                        start: 'top 85%',
+                        toggleActions: 'play none none reverse'
+                    }
+                }
+            );
         }
     }
 }
