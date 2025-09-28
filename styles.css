@@ -410,7 +410,7 @@ html {
     box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
 }
 
-/* Hero Section */
+/* Hero Section - Sophisticated Elegance */
 .hero {
     position: relative;
     height: 100vh;
@@ -418,6 +418,7 @@ html {
     align-items: center;
     justify-content: center;
     overflow: hidden;
+    background: linear-gradient(135deg, rgba(0, 0, 0, 0.4) 0%, rgba(0, 0, 0, 0.6) 100%);
 }
 
 /* Animated border effect */
@@ -580,17 +581,18 @@ html {
 }
 
 .main-title {
-    font-family: var(--font-nav);
-    font-size: clamp(3rem, 7vw, 5rem);
-    font-weight: 700;
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(3.5rem, 8vw, 6rem);
+    font-weight: 400;
+    font-style: italic;
     margin-bottom: 1.5rem;
     opacity: 0;
     transform: translateY(50px);
-    letter-spacing: -0.02em;
+    letter-spacing: 0.02em;
+    color: var(--primary-white);
     text-shadow: 
-        0 4px 20px rgba(0, 0, 0, 0.5),
-        0 8px 40px rgba(0, 0, 0, 0.3),
-        0 0 60px rgba(255, 255, 255, 0.1);
+        0 2px 10px rgba(0, 0, 0, 0.3),
+        0 4px 20px rgba(0, 0, 0, 0.2);
     animation: titleGlow 4s ease-in-out infinite;
 }
 
@@ -852,30 +854,35 @@ section {
 }
 
 .section-title {
-    font-family: var(--font-nav);
-    font-size: clamp(2.5rem, 5vw, 4rem);
-    font-weight: 700;
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2.8rem, 6vw, 4.5rem);
+    font-weight: 400;
+    font-style: italic;
     margin-bottom: 1rem;
     color: var(--primary-black);
-    letter-spacing: -0.02em;
+    letter-spacing: 0.02em;
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
 
 .section-subtitle {
-    font-family: var(--font-accent);
-    font-size: 1.3rem;
-    font-weight: 400;
+    font-family: 'Inter', sans-serif;
+    font-size: 1.1rem;
+    font-weight: 300;
     color: var(--text-gray);
     max-width: 600px;
     margin: 0 auto;
-    letter-spacing: 0.01em;
+    letter-spacing: 0.1em;
     line-height: 1.6;
+    text-transform: uppercase;
+    opacity: 0.8;
 }
 
-/* Classes Section */
+/* Classes Section - Sophisticated Glassmorphism */
 .classes {
-    background: var(--light-gray);
+    background: linear-gradient(135deg, rgba(248, 248, 248, 0.9) 0%, rgba(255, 255, 255, 0.95) 100%);
     position: relative;
     overflow: hidden;
+    backdrop-filter: blur(10px);
 }
 
 /* Elegant Quote Section */
@@ -885,15 +892,16 @@ section {
 }
 
 .quote-wrapper {
-    max-width: 600px;
+    max-width: 700px;
     margin: 0 auto;
-    padding: 2rem 1.5rem;
-    background: linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(248, 248, 248, 0.95) 100%);
+    padding: 3rem 2rem;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.05) 100%);
     border-radius: 0;
-    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.08);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
     position: relative;
     overflow: hidden;
-    border: 1px solid rgba(0, 0, 0, 0.05);
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    backdrop-filter: blur(20px);
 }
 
 .quote-wrapper::before {
@@ -930,27 +938,28 @@ section {
 }
 
 .quote-text {
-    font-family: 'Crimson Text', serif;
-    font-size: 1.2rem;
+    font-family: 'Playfair Display', serif;
+    font-size: 1.4rem;
     font-weight: 400;
     font-style: italic;
-    line-height: 1.5;
+    line-height: 1.6;
     color: var(--primary-black);
-    margin-bottom: 1rem;
-    letter-spacing: 0.01em;
+    margin-bottom: 1.5rem;
+    letter-spacing: 0.02em;
     position: relative;
     z-index: 2;
 }
 
 .quote-author {
     font-family: 'Inter', sans-serif;
-    font-size: 0.9rem;
+    font-size: 0.8rem;
     font-weight: 300;
     color: var(--accent-gray);
     letter-spacing: 0.1em;
     text-transform: uppercase;
     position: relative;
     z-index: 2;
+    opacity: 0.7;
 }
 
 /* Mission Statement */
@@ -963,11 +972,14 @@ section {
     max-width: 900px;
     margin: 0 auto;
     padding: 3rem 2rem;
-    background: linear-gradient(135deg, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.9));
-    color: var(--primary-white);
-    border-radius: 20px;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.05) 100%);
+    color: var(--primary-black);
+    border-radius: 0;
     position: relative;
     overflow: hidden;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    backdrop-filter: blur(20px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
 }
 
 .mission-content::before {
@@ -999,24 +1011,27 @@ section {
 }
 
 .mission-title {
-    font-family: var(--font-nav);
-    font-size: 2rem;
-    font-weight: 700;
+    font-family: 'Playfair Display', serif;
+    font-size: 2.2rem;
+    font-weight: 400;
+    font-style: italic;
     margin-bottom: 1rem;
-    letter-spacing: -0.02em;
+    letter-spacing: 0.02em;
     position: relative;
     z-index: 2;
+    color: var(--primary-black);
 }
 
 .mission-description {
-    font-family: var(--font-elegant);
+    font-family: 'Inter', sans-serif;
     font-size: 1.2rem;
-    font-weight: 400;
+    font-weight: 300;
     line-height: 1.6;
-    opacity: 0.9;
+    opacity: 0.8;
     letter-spacing: 0.01em;
     position: relative;
     z-index: 2;
+    color: var(--primary-black);
 }
 
 .classes-grid {
@@ -1028,10 +1043,14 @@ section {
 .class-card {
     position: relative;
     height: 400px;
-    border-radius: 12px;
+    border-radius: 0;
     overflow: hidden;
     cursor: pointer;
     transition: var(--transition-smooth);
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.05) 100%);
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    backdrop-filter: blur(20px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
 }
 
 .class-card:hover {
@@ -1073,17 +1092,18 @@ section {
 }
 
 .class-title {
-    font-family: var(--font-nav);
-    font-size: 1.6rem;
-    font-weight: 600;
+    font-family: 'Playfair Display', serif;
+    font-size: 1.8rem;
+    font-weight: 400;
+    font-style: italic;
     margin-bottom: 0.5rem;
-    letter-spacing: -0.01em;
+    letter-spacing: 0.02em;
 }
 
 .class-description {
-    font-family: var(--font-accent);
+    font-family: 'Inter', sans-serif;
     font-size: 1rem;
-    font-weight: 400;
+    font-weight: 300;
     opacity: 0.9;
     line-height: 1.5;
     letter-spacing: 0.01em;
