@@ -283,6 +283,30 @@ function initializeQuoteAnimations() {
             }
         );
         
+        // Animate quote number
+        const quoteNumber = quoteSection.querySelector('.quote-number');
+        if (quoteNumber) {
+            gsap.fromTo(quoteNumber, 
+                {
+                    opacity: 0,
+                    scale: 0.5,
+                    rotation: -10
+                },
+                {
+                    opacity: 0.1,
+                    scale: 1,
+                    rotation: 0,
+                    duration: 1,
+                    ease: 'power3.out',
+                    scrollTrigger: {
+                        trigger: quoteNumber,
+                        start: 'top 85%',
+                        toggleActions: 'play none none reverse'
+                    }
+                }
+            );
+        }
+        
         // Animate quote text word by word
         const quoteText = quoteSection.querySelector('.quote-text');
         if (quoteText) {
@@ -292,15 +316,15 @@ function initializeQuoteAnimations() {
             gsap.fromTo(quoteText.querySelectorAll('.word'), 
                 {
                     opacity: 0,
-                    y: 20,
-                    rotationX: 90
+                    y: 15,
+                    rotationX: 45
                 },
                 {
                     opacity: 1,
                     y: 0,
                     rotationX: 0,
-                    duration: 0.6,
-                    stagger: 0.1,
+                    duration: 0.5,
+                    stagger: 0.08,
                     ease: 'power2.out',
                     scrollTrigger: {
                         trigger: quoteText,
