@@ -3,62 +3,216 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>New Haven Pilates</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f5f5f5;
-        }
-        .header {
-            background-color: #2c3e50;
-            color: white;
-            padding: 20px;
-            text-align: center;
-        }
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 20px;
-        }
-        .hero {
-            background-color: white;
-            padding: 40px;
-            border-radius: 8px;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-            text-align: center;
-            margin: 20px 0;
-        }
-        .cta-button {
-            background-color: #3498db;
-            color: white;
-            padding: 12px 24px;
-            border: none;
-            border-radius: 4px;
-            font-size: 16px;
-            cursor: pointer;
-            text-decoration: none;
-            display: inline-block;
-            margin-top: 20px;
-        }
-        .cta-button:hover {
-            background-color: #2980b9;
-        }
-    </style>
+    <title>New Haven Pilates - Award Winning Pilates Studio</title>
+    <meta name="description" content="New Haven Pilates studio for Equipment Classes, Reformer classes, MAT classes, Barre Classes, Personal Training, Private and Duet Pilates Training located in historic Erector Square with plenty of free parking.">
+    
+    <!-- Modern Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Geogrotesque:wght@200;300;400;500;600;700&family=Inter:wght@200;300;400;500;600;700&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Animation Libraries -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/TextPlugin.min.js"></script>
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div class="header">
-        <h1>New Haven Pilates</h1>
-        <p>Transform Your Body, Transform Your Life</p>
-    </div>
-    
-    <div class="container">
-        <div class="hero">
-            <h2>Welcome to New Haven Pilates</h2>
-            <p>Discover the power of Pilates in a welcoming and professional environment. Our certified instructors are here to help you achieve your fitness goals.</p>
-            <a href="#" class="cta-button">Get Started Today</a>
+    <!-- Navigation -->
+    <nav class="nav" id="nav">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <span class="logo-text">NHP</span>
+            </div>
+            <div class="nav-menu" id="nav-menu">
+                <a href="#home" class="nav-link">Home</a>
+                <a href="#classes" class="nav-link">Classes</a>
+                <a href="#instructors" class="nav-link">Instructors</a>
+                <a href="#schedule" class="nav-link">Schedule</a>
+                <a href="#contact" class="nav-link">Contact</a>
+            </div>
+            <div class="nav-toggle" id="nav-toggle">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
         </div>
-    </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-background">
+            <div class="hero-image" data-bg="NHP_files/homepage.jpg"></div>
+            <div class="hero-overlay"></div>
+        </div>
+        
+        <div class="hero-content">
+            <div class="hero-quote">
+                <h1 class="quote-text animate-text">
+                    "In 10 sessions you will feel better, 20 sessions you will look better, 30 sessions you will have a completely new body."
+                </h1>
+                <p class="quote-author animate-text-delay">- Joseph Pilates</p>
+            </div>
+            
+            <div class="hero-title">
+                <h2 class="main-title animate-title">
+                    New Haven's Award Winning Pilates Studio
+                </h2>
+            </div>
+            
+            <div class="hero-subtitle">
+                <h3 class="subtitle animate-subtitle">
+                    NHP Offers Group Pilates Classes
+                </h3>
+                <h3 class="subtitle animate-subtitle-delay">
+                    A Pilates Studio Dedicated To Core Focused Body Movements
+                </h3>
+            </div>
+            
+            <div class="hero-cta">
+                <button class="cta-button animate-button">
+                    <span class="button-text">Start Your Journey</span>
+                    <div class="button-ripple"></div>
+                </button>
+            </div>
+        </div>
+        
+        <div class="scroll-indicator">
+            <div class="scroll-arrow"></div>
+        </div>
+    </section>
+
+    <!-- Classes Section -->
+    <section class="classes" id="classes">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title animate-on-scroll">Our Classes</h2>
+                <p class="section-subtitle animate-on-scroll">Choose from our variety of Pilates classes designed for all levels</p>
+            </div>
+            
+            <div class="classes-grid">
+                <div class="class-card animate-card">
+                    <div class="class-image">
+                        <img src="NHP_files/krista-aloi-11-w1920-o.jpg" alt="Reformer Classes" loading="lazy">
+                        <div class="class-overlay">
+                            <h3 class="class-title">Reformer Classes</h3>
+                            <p class="class-description">Equipment-based Pilates using the reformer machine for full-body conditioning</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="class-card animate-card">
+                    <div class="class-image">
+                        <img src="NHP_files/krista-aloi-36-w1920-o.jpg" alt="MAT Classes" loading="lazy">
+                        <div class="class-overlay">
+                            <h3 class="class-title">MAT Classes</h3>
+                            <p class="class-description">Traditional Pilates mat work focusing on core strength and flexibility</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="class-card animate-card">
+                    <div class="class-image">
+                        <img src="NHP_files/img-1069-w1440-o.jpg" alt="Barre Classes" loading="lazy">
+                        <div class="class-overlay">
+                            <h3 class="class-title">Barre Classes</h3>
+                            <p class="class-description">Ballet-inspired workout combining Pilates, yoga, and dance</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Instructors Section -->
+    <section class="instructors" id="instructors">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title animate-on-scroll">Meet Our Instructors</h2>
+                <p class="section-subtitle animate-on-scroll">Expert instructors dedicated to your Pilates journey</p>
+            </div>
+            
+            <div class="instructor-profile">
+                <div class="instructor-image animate-image">
+                    <img src="NHP_files/krista-aloi-11-w1920-o.jpg" alt="Krista Rea" loading="lazy">
+                </div>
+                <div class="instructor-content animate-content">
+                    <h3 class="instructor-name">Krista Rea</h3>
+                    <p class="instructor-bio long-text">
+                        If you are able to join a group class and do not have any movement restrictions;<br>
+                        Please email Krista: krista@newhavenpilates.com<br><br>
+                        You must obtain permission in order to join an existing class or sign up for an Introductory Reformer Class!
+                    </p>
+                    <div class="instructor-contact">
+                        <a href="mailto:krista@newhavenpilates.com" class="contact-button">
+                            <span>Contact Krista</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Schedule Section -->
+    <section class="schedule" id="schedule">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title animate-on-scroll">Class Schedule</h2>
+                <p class="section-subtitle animate-on-scroll">Find the perfect time for your Pilates practice</p>
+            </div>
+            
+            <div class="schedule-content animate-on-scroll">
+                <div class="schedule-note">
+                    <p class="long-text">Please contact Krista at krista@newhavenpilates.com to join existing classes or sign up for Introductory Reformer Classes.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title animate-on-scroll">Get In Touch</h2>
+                <p class="section-subtitle animate-on-scroll">Ready to start your Pilates journey?</p>
+            </div>
+            
+            <div class="contact-content">
+                <div class="contact-info animate-on-scroll">
+                    <div class="contact-item">
+                        <h3>Email</h3>
+                        <a href="mailto:krista@newhavenpilates.com">krista@newhavenpilates.com</a>
+                    </div>
+                    <div class="contact-item">
+                        <h3>Location</h3>
+                        <p>Historic Erector Square<br>New Haven, CT</p>
+                    </div>
+                    <div class="contact-item">
+                        <h3>Parking</h3>
+                        <p>Plenty of free parking available</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <span class="logo-text">NHP</span>
+                </div>
+                <div class="footer-text">
+                    <p>&copy; 2024 New Haven Pilates. All rights reserved.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="script.js"></script>
 </body>
 </html>
