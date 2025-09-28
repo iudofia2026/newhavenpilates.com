@@ -1008,9 +1008,28 @@ section {
 }
 
 .mission-icon {
-    font-size: 2.5rem;
     margin-bottom: 1.5rem;
     animation: missionPulse 3s ease-in-out infinite;
+}
+
+.mission-icon .icon-circle {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.05) 100%);
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+    backdrop-filter: blur(20px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.mission-icon .icon-inner {
+    font-size: 1.5rem;
+    color: var(--primary-black);
+    font-weight: 300;
 }
 
 @keyframes missionPulse {
@@ -1203,15 +1222,18 @@ section {
 }
 
 .icon-circle {
-    width: 60px;
-    height: 60px;
+    width: 50px;
+    height: 50px;
     border-radius: 50%;
-    background: linear-gradient(135deg, var(--primary-black), var(--accent-gray));
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.05) 100%);
+    border: 2px solid rgba(255, 255, 255, 0.3);
     display: flex;
     align-items: center;
     justify-content: center;
     position: relative;
     animation: iconFloat 3s ease-in-out infinite;
+    backdrop-filter: blur(20px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
 }
 
 .icon-circle::before {
@@ -1222,14 +1244,17 @@ section {
     right: -2px;
     bottom: -2px;
     border-radius: 50%;
-    background: linear-gradient(135deg, var(--primary-black), var(--accent-gray));
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.1));
     z-index: -1;
     animation: iconGlow 2s ease-in-out infinite;
 }
 
 .icon-inner {
-    font-size: 1.5rem;
+    font-size: 1.2rem;
+    color: var(--primary-black);
+    font-weight: 300;
     animation: iconPulse 2s ease-in-out infinite;
+    font-family: 'Inter', sans-serif;
 }
 
 @keyframes iconFloat {
