@@ -1,0 +1,134 @@
+{
+  "icons": [
+    {
+      "name": "phone",
+      "description": "Phone/telephone icon",
+      "files": {
+        "svg": "assets/icons/phone.svg",
+        "png": "assets/icons/phone.png", 
+        "webp": "assets/icons/phone.webp"
+      },
+      "attribution": "Custom icon inspired by Feather Icons design system",
+      "license": "MIT",
+      "source": "https://feathericons.com/",
+      "size": "24x24px"
+    },
+    {
+      "name": "email",
+      "description": "Email/mail icon",
+      "files": {
+        "svg": "assets/icons/email.svg",
+        "png": "assets/icons/email.png",
+        "webp": "assets/icons/email.webp"
+      },
+      "attribution": "Custom icon inspired by Feather Icons design system",
+      "license": "MIT", 
+      "source": "https://feathericons.com/",
+      "size": "24x24px"
+    },
+    {
+      "name": "location",
+      "description": "Location/map pin icon",
+      "files": {
+        "svg": "assets/icons/location.svg",
+        "png": "assets/icons/location.png",
+        "webp": "assets/icons/location.webp"
+      },
+      "attribution": "Custom icon inspired by Feather Icons design system",
+      "license": "MIT",
+      "source": "https://feathericons.com/",
+      "size": "24x24px"
+    },
+    {
+      "name": "clock",
+      "description": "Clock/schedule/time icon",
+      "files": {
+        "svg": "assets/icons/clock.svg",
+        "png": "assets/icons/clock.png",
+        "webp": "assets/icons/clock.webp"
+      },
+      "attribution": "Custom icon inspired by Feather Icons design system",
+      "license": "MIT",
+      "source": "https://feathericons.com/",
+      "size": "24x24px"
+    },
+    {
+      "name": "pricing",
+      "description": "Dollar sign/pricing icon",
+      "files": {
+        "svg": "assets/icons/pricing.svg",
+        "png": "assets/icons/pricing.png",
+        "webp": "assets/icons/pricing.webp"
+      },
+      "attribution": "Custom icon inspired by Feather Icons design system",
+      "license": "MIT",
+      "source": "https://feathericons.com/",
+      "size": "24x24px"
+    },
+    {
+      "name": "classes",
+      "description": "Calendar/classes/schedule icon",
+      "files": {
+        "svg": "assets/icons/classes.svg",
+        "png": "assets/icons/classes.png",
+        "webp": "assets/icons/classes.webp"
+      },
+      "attribution": "Custom icon inspired by Feather Icons design system",
+      "license": "MIT",
+      "source": "https://feathericons.com/",
+      "size": "24x24px"
+    },
+    {
+      "name": "instructor",
+      "description": "User/person/instructor icon",
+      "files": {
+        "svg": "assets/icons/instructor.svg",
+        "png": "assets/icons/instructor.png",
+        "webp": "assets/icons/instructor.webp"
+      },
+      "attribution": "Custom icon inspired by Feather Icons design system",
+      "license": "MIT",
+      "source": "https://feathericons.com/",
+      "size": "24x24px"
+    },
+    {
+      "name": "policy",
+      "description": "Shield/security/policy icon",
+      "files": {
+        "svg": "assets/icons/policy.svg",
+        "png": "assets/icons/policy.png",
+        "webp": "assets/icons/policy.webp"
+      },
+      "attribution": "Custom icon inspired by Feather Icons design system",
+      "license": "MIT",
+      "source": "https://feathericons.com/",
+      "size": "24x24px"
+    },
+    {
+      "name": "faq",
+      "description": "Question mark/help/FAQ icon",
+      "files": {
+        "svg": "assets/icons/faq.svg",
+        "png": "assets/icons/faq.png",
+        "webp": "assets/icons/faq.webp"
+      },
+      "attribution": "Custom icon inspired by Feather Icons design system",
+      "license": "MIT",
+      "source": "https://feathericons.com/",
+      "size": "24x24px"
+    }
+  ],
+  "design_system": {
+    "stroke_color": "#4b5563",
+    "stroke_width": "1.5",
+    "size": "24x24px",
+    "style": "Minimal, clean line icons with consistent stroke weight",
+    "aesthetic": "Quiet, professional design matching New Haven Pilates brand"
+  },
+  "usage_notes": {
+    "formats": "SVG for scalability, PNG for compatibility, WebP for performance",
+    "recommended_use": "Use WebP format for web with PNG fallback",
+    "color_customization": "Stroke color can be changed via CSS or SVG editing",
+    "accessibility": "All icons are simple line art suitable for high contrast modes"
+  }
+}

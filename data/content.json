@@ -1,0 +1,97 @@
+{
+  "studio": {
+    "name": "NEW HAVEN PILATES",
+    "tagline": "New Haven's Award Winning Pilates Studio",
+    "description": "New Haven Pilates studio for Equipment Classes, Reformer classes, MAT classes, Barre Classes, Personal Training, Private and Duet Pilates Training located in historic Erector Square with plenty of free parking.",
+    "quote": "In 10 sessions you will feel better, 20 sessions you will look better, 30 sessions you will have a completely new body. - Joseph Pilates"
+  },
+  "hero": {
+    "headline": "New Haven's Award Winning Pilates Studio",
+    "subheadline": "NHP Offers Group Pilates Classes",
+    "description": "A Pilates Studio Dedicated To Core Focused Body Movements",
+    "cta_text": "EMAIL NHP",
+    "cta_email": "krista@newhavenpilates.com",
+    "permission_note": "If you are able to join a group class and do not have any movement restrictions; Please email Krista: krista@newhavenpilates.com. You must obtain permission in order to join an existing class or sign up for an Introductory Reformer Class!"
+  },
+  "about_pilates": {
+    "title": "What Is Pilates?",
+    "description": "Pilates is a method of exercise developed by German-born Joseph Pilates in the 1920's. In 1926, Joseph and Clara Pilates introduced their exercise system to New York City. The Pilates method is a physical movement program designed to stretch, strengthen, and balance the body.",
+    "benefits": "Pilates exercises focus on postural symmetry, breath control, abdominal strength, spine, pelvis and shoulder stabilization, muscular flexibility, joint mobility and strengthening through the complete range of motion of all joints. Instead of isolating muscle groups, the whole body is trained, integrating the upper and lower extremities with the trunk.",
+    "benefits_list": [
+      "Increased lung capacity and circulation through deep, healthy breathing",
+      "Strength and flexibility, particularly of the abdomen, hips, and back muscles",
+      "Coordination, both muscular and mental",
+      "Posture, balance, and core strength are heartily increased",
+      "Bone density and joint health improve",
+      "Positive body awareness"
+    ],
+    "conclusion": "Pilates teaches balance and control of the body, and that capacity spills over into other areas of one's life."
+  },
+  "studio_info": {
+    "title": "About the Studio",
+    "description": "NEW HAVEN PILATES is a Group Fitness studio dedicated to body movement. Using the classical Pilates method along with utilizing modern corrective core exercises, clients build inner core strength, confidence and overall strength.",
+    "services": "The studio offers group Reformer Apparatus Classes which include MAT, Tower, Chair and other small equipment.",
+    "policy": "All new clients/members must email the studio for permission to join any of the classes!",
+    "warning": "PLEASE DO NOT SIGN UP FOR ANY CLASSES UNTIL YOUR REQUEST FOR PERMISSION WAS GRANTED FROM THE STUDIO!"
+  },
+  "classes": {
+    "introductory": {
+      "title": "Introductory Reformer Class",
+      "description": "Students will be coached on techniques, alignment and core control while building the strength, stamina and repertoire required to participate in a beginner level Pilates classes. Perfect for a beginner and for those just getting back into practice."
+    },
+    "beginner_intermediate": {
+      "title": "Beginner/Intermediate Classes",
+      "description": "Combining the Beginner level Reformer exercises and adding the Intermediate level exercises. This class is for students who have taken Pilates group reformer classes in the past. The pace will increase as the flow and transitions from each exercises are taught."
+    },
+    "advanced": {
+      "title": "Advanced level Classes",
+      "description": "Students who have taken Pilates Reformer classes / lessons for a minimum of 2 years who should have developed the strength and control and knowledge of the method and order of exercises for the more physically challenging advanced level exercises added into the complete order of reformer exercises."
+    }
+  },
+  "schedule": {
+    "title": "Schedule",
+    "policy": "All studio participants who have been authorized to join class, must schedule and pay for your class before arriving at the studio. Please do not just show up for a class without scheduling in advance.",
+    "no_walkins": "NHP does not allow walk in's or people joining an existing regularly scheduled class without Studio approval. Please email for approval!",
+    "no_privates": "NHP DOES NOT OFFER PRIVATE SESSIONS!",
+    "schedule": {
+      "Monday": "8am, 9:15am, 5pm, 6pm",
+      "Tuesday": "7am, 8am, 9:15am, 5:30pm, 6:30pm",
+      "Wednesday": "4pm, 5pm, 6pm",
+      "Thursday": "8am, 9:15am",
+      "Friday": "8am, 9:15am",
+      "Saturday": "8:30am, 9:30am"
+    },
+    "note": "Classes are subject to change! Once permission is granted from the studio, participants will prebook and prepay for any sessions!"
+  },
+  "location": {
+    "address": "Erector Square, New Haven, CT 06511",
+    "parking": "Free parking available on-site. Enter through the main Erector Square entrance and follow signs to the Pilates studio.",
+    "hours": {
+      "Monday_Friday": "6:00 AM - 8:00 PM",
+      "Saturday": "7:00 AM - 2:00 PM",
+      "Sunday": "8:00 AM - 12:00 PM"
+    }
+  },
+  "contact": {
+    "email": "krista@newhavenpilates.com",
+    "phone": "(203) 555-0123",
+    "cta_email_text": "EMAIL NHP",
+    "cta_schedule_text": "Book Now"
+  },
+  "forms": {
+    "health_questionnaire": "Health Questionaire",
+    "waiver": "NHP Waiver"
+  },
+  "footer": {
+    "copyright": "Copyright © 2017 NEW HAVEN PILATES LLC"
+  },
+  "navigation": {
+    "home": "HOME",
+    "about": "ABOUT",
+    "schedule": "SCHEDULE",
+    "rates_policies": "RATES + POLICIES",
+    "instructors": "INSTRUCTORS",
+    "contact": "CONTACT",
+    "teacher_training": "TEACHER TRAINING"
+  }
+}
