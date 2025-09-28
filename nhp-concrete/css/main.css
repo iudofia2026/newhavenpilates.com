@@ -241,6 +241,34 @@ img.loading {
     transform: translateY(0);
 }
 
+/* New animation classes for app.js */
+.animate-hidden {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.animate-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.animate-stagger {
+    transition-delay: var(--stagger-delay, 0ms);
+}
+
+/* Enhanced focus indicators */
+.focus-visible {
+    outline: 3px solid var(--primary-color);
+    outline-offset: 2px;
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+}
+
+/* Smooth transitions for loaded state */
+body.loaded * {
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
 /* Custom focus indicators for better accessibility */
 a:focus-visible,
 button:focus-visible,
