@@ -29,7 +29,7 @@ function initializeAnimations() {
     });
 
     // Hero text animations with stagger
-    const heroElements = gsap.utils.toArray('.animate-text, .animate-text-delay, .animate-title, .animate-subtitle, .animate-subtitle-delay, .animate-button');
+    const heroElements = gsap.utils.toArray('.animate-title, .animate-subtitle, .animate-subtitle-delay, .animate-button');
     
     heroElements.forEach((element, index) => {
         gsap.fromTo(element, 
@@ -43,9 +43,30 @@ function initializeAnimations() {
                 y: 0,
                 rotationX: 0,
                 duration: 1.2,
-                delay: 0.5 + (index * 0.2),
+                delay: 0.5 + (index * 0.3),
                 ease: 'power3.out',
                 transformOrigin: 'center bottom'
+            }
+        );
+    });
+
+    // Quote animations
+    const quoteElements = gsap.utils.toArray('.animate-quote, .animate-quote-author');
+    
+    quoteElements.forEach((element, index) => {
+        gsap.fromTo(element, 
+            {
+                opacity: 0,
+                y: 30,
+                scale: 0.95
+            },
+            {
+                opacity: 1,
+                y: 0,
+                scale: 1,
+                duration: 1,
+                delay: 2.5 + (index * 0.3),
+                ease: 'power2.out'
             }
         );
     });
@@ -94,33 +115,36 @@ function initializeAnimations() {
     }
 }
 
-// Navigation functionality
+// Modern Navigation functionality
 function initializeNavigation() {
     const navToggle = document.getElementById('nav-toggle');
-    const navMenu = document.getElementById('nav-menu');
+    const mobileMenu = document.getElementById('mobile-menu');
     const navLinks = document.querySelectorAll('.nav-link');
+    const mobileNavLinks = document.querySelectorAll('.mobile-nav-link');
+    const modernNav = document.getElementById('modern-nav');
 
     // Mobile menu toggle
     navToggle.addEventListener('click', () => {
-        navMenu.classList.toggle('active');
+        mobileMenu.classList.toggle('active');
         navToggle.classList.toggle('active');
         
-        // Animate menu items
-        if (navMenu.classList.contains('active')) {
-            gsap.fromTo(navLinks, 
-                { opacity: 0, y: 20 },
+        // Animate mobile menu items
+        if (mobileMenu.classList.contains('active')) {
+            gsap.fromTo(mobileNavLinks, 
+                { opacity: 0, y: 30, scale: 0.9 },
                 { 
                     opacity: 1, 
                     y: 0, 
-                    duration: 0.5, 
+                    scale: 1,
+                    duration: 0.6, 
                     stagger: 0.1,
-                    ease: 'power2.out'
+                    ease: 'power3.out'
                 }
             );
         }
     });
 
-    // Smooth scrolling for navigation links
+    // Smooth scrolling for desktop navigation links
     navLinks.forEach(link => {
         link.addEventListener('click', (e) => {
             e.preventDefault();
@@ -132,7 +156,7 @@ function initializeNavigation() {
                     duration: 1.5,
                     scrollTo: {
                         y: targetSection,
-                        offsetY: 80
+                        offsetY: 100
                     },
                     ease: 'power2.inOut'
                 });
@@ -140,11 +164,93 @@ function initializeNavigation() {
         });
     });
 
-    // Navbar scroll effect
+    // Smooth scrolling for mobile navigation links
+    mobileNavLinks.forEach(link => {
+        link.addEventListener('click', (e) => {
+            e.preventDefault();
+            const targetId = link.getAttribute('href');
+            const targetSection = document.querySelector(targetId);
+            
+            // Close mobile menu
+            mobileMenu.classList.remove('active');
+            navToggle.classList.remove('active');
+            
+            if (targetSection) {
+                gsap.to(window, {
+                    duration: 1.5,
+                    scrollTo: {
+                        y: targetSection,
+                        offsetY: 100
+                    },
+                    ease: 'power2.inOut'
+                });
+            }
+        });
+    });
+
+    // Navbar scroll effect with enhanced animations
     ScrollTrigger.create({
-        start: 'top -80',
+        start: 'top -100',
         end: 99999,
-        toggleClass: {className: 'scrolled', targets: '.nav'}
+        toggleClass: {className: 'scrolled', targets: '.modern-nav'},
+        onEnter: () => {
+            gsap.to('.modern-nav', {
+                duration: 0.4,
+                ease: 'power2.out'
+            });
+        },
+        onLeave: () => {
+            gsap.to('.modern-nav', {
+                duration: 0.4,
+                ease: 'power2.out'
+            });
+        }
+    });
+
+    // Active link highlighting
+    const sections = document.querySelectorAll('section[id]');
+    
+    ScrollTrigger.batch(sections, {
+        onEnter: (elements) => {
+            elements.forEach(element => {
+                const id = element.getAttribute('id');
+                const activeLink = document.querySelector(`.nav-link[href="#${id}"]`);
+                if (activeLink) {
+                    // Remove active class from all links
+                    document.querySelectorAll('.nav-link').forEach(link => {
+                        link.classList.remove('active');
+                    });
+                    // Add active class to current link
+                    activeLink.classList.add('active');
+                }
+            });
+        },
+        onLeave: (elements) => {
+            elements.forEach(element => {
+                const id = element.getAttribute('id');
+                const activeLink = document.querySelector(`.nav-link[href="#${id}"]`);
+                if (activeLink) {
+                    activeLink.classList.remove('active');
+                }
+            });
+        }
+    });
+
+    // Enhanced hover effects for navigation items
+    navLinks.forEach(link => {
+        link.addEventListener('mouseenter', () => {
+            gsap.to(link, {
+                duration: 0.3,
+                ease: 'power2.out'
+            });
+        });
+        
+        link.addEventListener('mouseleave', () => {
+            gsap.to(link, {
+                duration: 0.3,
+                ease: 'power2.out'
+            });
+        });
     });
 }
 

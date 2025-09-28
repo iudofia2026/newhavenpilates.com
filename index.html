@@ -9,7 +9,7 @@
     <!-- Modern Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Geogrotesque:wght@200;300;400;500;600;700&family=Inter:wght@200;300;400;500;600;700&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;1,400&family=Inter:wght@200;300;400;500;600;700&family=Outfit:wght@200;300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Space+Grotesk:wght@300;400;500;600;700&family=Manrope:wght@200;300;400;500;600;700;800&display=swap" rel="stylesheet">
     
     <!-- Animation Libraries -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
@@ -20,23 +20,82 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <!-- Navigation -->
-    <nav class="nav" id="nav">
+    <!-- Modern Navigation -->
+    <nav class="modern-nav" id="modern-nav">
         <div class="nav-container">
+            <!-- Logo Section -->
             <div class="nav-logo">
-                <span class="logo-text">NHP</span>
+                <div class="logo-wrapper">
+                    <span class="logo-text">New Haven Pilates</span>
+                    <div class="logo-underline"></div>
+                </div>
             </div>
+            
+            <!-- Desktop Navigation -->
             <div class="nav-menu" id="nav-menu">
-                <a href="#home" class="nav-link">Home</a>
-                <a href="#classes" class="nav-link">Classes</a>
-                <a href="#instructors" class="nav-link">Instructors</a>
-                <a href="#schedule" class="nav-link">Schedule</a>
-                <a href="#contact" class="nav-link">Contact</a>
+                <div class="nav-item">
+                    <a href="#home" class="nav-link" data-text="Home">
+                        <span class="nav-text">Home</span>
+                        <div class="nav-indicator"></div>
+                    </a>
+                </div>
+                <div class="nav-item">
+                    <a href="#classes" class="nav-link" data-text="Classes">
+                        <span class="nav-text">Classes</span>
+                        <div class="nav-indicator"></div>
+                    </a>
+                </div>
+                <div class="nav-item">
+                    <a href="#instructors" class="nav-link" data-text="Instructors">
+                        <span class="nav-text">Instructors</span>
+                        <div class="nav-indicator"></div>
+                    </a>
+                </div>
+                <div class="nav-item">
+                    <a href="#schedule" class="nav-link" data-text="Schedule">
+                        <span class="nav-text">Schedule</span>
+                        <div class="nav-indicator"></div>
+                    </a>
+                </div>
+                <div class="nav-item">
+                    <a href="#contact" class="nav-link" data-text="Contact">
+                        <span class="nav-text">Contact</span>
+                        <div class="nav-indicator"></div>
+                    </a>
+                </div>
             </div>
+            
+            <!-- CTA Button -->
+            <div class="nav-cta">
+                <button class="nav-button">
+                    <span class="button-text">Book Now</span>
+                    <div class="button-bg"></div>
+                </button>
+            </div>
+            
+            <!-- Mobile Toggle -->
             <div class="nav-toggle" id="nav-toggle">
-                <span class="bar"></span>
-                <span class="bar"></span>
-                <span class="bar"></span>
+                <div class="hamburger">
+                    <span class="line line-1"></span>
+                    <span class="line line-2"></span>
+                    <span class="line line-3"></span>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Mobile Menu Overlay -->
+        <div class="mobile-menu" id="mobile-menu">
+            <div class="mobile-menu-content">
+                <div class="mobile-nav-items">
+                    <a href="#home" class="mobile-nav-link">Home</a>
+                    <a href="#classes" class="mobile-nav-link">Classes</a>
+                    <a href="#instructors" class="mobile-nav-link">Instructors</a>
+                    <a href="#schedule" class="mobile-nav-link">Schedule</a>
+                    <a href="#contact" class="mobile-nav-link">Contact</a>
+                </div>
+                <div class="mobile-cta">
+                    <button class="mobile-button">Book Now</button>
+                </div>
             </div>
         </div>
     </nav>
@@ -49,24 +108,17 @@
         </div>
         
         <div class="hero-content">
-            <div class="hero-quote">
-                <h1 class="quote-text animate-text">
-                    "In 10 sessions you will feel better, 20 sessions you will look better, 30 sessions you will have a completely new body."
-                </h1>
-                <p class="quote-author animate-text-delay">- Joseph Pilates</p>
-            </div>
-            
             <div class="hero-title">
-                <h2 class="main-title animate-title">
+                <h1 class="main-title animate-title">
                     New Haven's Award Winning Pilates Studio
-                </h2>
+                </h1>
             </div>
             
             <div class="hero-subtitle">
-                <h3 class="subtitle animate-subtitle">
+                <h2 class="subtitle animate-subtitle">
                     NHP Offers Group Pilates Classes
-                </h3>
-                <h3 class="subtitle animate-subtitle-delay">
+                </h2>
+                <h3 class="subtitle-secondary animate-subtitle-delay">
                     A Pilates Studio Dedicated To Core Focused Body Movements
                 </h3>
             </div>
@@ -76,6 +128,16 @@
                     <span class="button-text">Start Your Journey</span>
                     <div class="button-ripple"></div>
                 </button>
+            </div>
+        </div>
+        
+        <!-- Quote moved to separate section -->
+        <div class="hero-quote-section">
+            <div class="quote-container">
+                <p class="quote-text animate-quote">
+                    "In 10 sessions you will feel better, 20 sessions you will look better, 30 sessions you will have a completely new body."
+                </p>
+                <p class="quote-author animate-quote-author">— Joseph Pilates</p>
             </div>
         </div>
         
@@ -203,7 +265,7 @@
         <div class="container">
             <div class="footer-content">
                 <div class="footer-logo">
-                    <span class="logo-text">NHP</span>
+                    <span class="logo-text">New Haven Pilates</span>
                 </div>
                 <div class="footer-text">
                     <p>&copy; 2024 New Haven Pilates. All rights reserved.</p>
