@@ -1,0 +1,21 @@
+/* Start Viewport desktop */
+#body-content { height:3586px; }
+body { background-color:transparent; }
+#txtBox_95 { top:2682px; left:20px; width:940px; height:78px; z-index:105; }
+#txtBox_102 { top:962px; left:20px; width:940px; height:120px; z-index:107; }
+#txtBox_103 { top:1801px; left:20px; width:940px; height:108px; z-index:106; }
+#imageContainer_106 { top:1148px; left:0px; width:983px; height:626px; z-index:106; }
+#imageContainer_106 img { width:983px; height:656px; margin-top:-15px; margin-left:0px; }
+#imageContainer_111 { top:1981px; left:0px; width:981px; height:618px; z-index:106; }
+#imageContainer_111 img { width:981px; height:654px; margin-top:-18px; margin-left:0px; }
+#imageContainer_110 { top:245px; left:0px; width:980px; height:643px; z-index:108; }
+#imageContainer_110 img { width:980px; height:700px; margin-top:-28px; margin-left:0px; }
+#txtBox_115 { top:16px; left:0px; width:982px; height:168px; z-index:108; }
+#txtBox_116 { top:2873px; left:31px; width:929px; height:381px; z-index:109; }
+#imageContainer_119 { top:251px; left:32px; width:918px; height:629px; z-index:110; }
+#imageContainer_119 img { width:944px; height:629px; margin-top:0px; margin-left:-13px; }
+#imageContainer_120 { top:1978px; left:187px; width:620px; height:600px; z-index:111; }
+#imageContainer_120 img { width:620px; height:827px; margin-top:-113px; margin-left:0px; }
+#imageContainer_117 { top:1156px; left:177px; width:640px; height:600px; z-index:112; }
+#imageContainer_117 img { width:640px; height:958px; margin-top:-179px; margin-left:0px; }
+/* End Viewport desktop */

@@ -1,0 +1,118 @@
+.wse-columns {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    height: 100%;
+    position: relative;
+    flex-flow: row nowrap;
+    margin: 0 auto;
+}
+
+.wse-columns .bgImg, .wse-columns .bgVid {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+.wse-columns.fixed {
+    width: var(--desktop-width);
+}
+
+.wse-columns > .wse-column {
+    position: relative;
+    min-width: 320px;
+}
+
+.wse-columns > .wse-column > .wse-column-bg {
+    position: absolute;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+}
+
+.wse-columns > .wse-column > .wse-column-inner {
+    position: absolute;
+    height: 100%;
+    z-index: 3;
+}
+
+.wse-columns.full-width > .wse-column > .wse-column-inner {
+    width: 100%;
+    left: 0;
+}
+
+/* column */
+.wse-columns-1 > .wse-column {
+    width: 100%;
+    min-width: var(--desktop-width);
+}
+.wse-columns-2 > .wse-column {
+    width: 50%;
+    min-width: calc(var(--desktop-width) / 2);
+}
+.wse-columns-3 > .wse-column {
+    width: 33.333%;
+    min-width: calc(var(--desktop-width) / 3);
+}
+.wse-columns-4 > .wse-column {
+    width: 25%;
+    min-width: calc(var(--desktop-width) / 4);
+}
+/* inner */
+.wse-columns-1 > .wse-column > .wse-column-inner {
+    width: var(--desktop-width);
+    left: calc((100% - var(--desktop-width)) / 2);
+}
+.wse-columns-2 > .wse-column > .wse-column-inner {
+    width: calc(var(--desktop-width) / 2);
+    left: calc((100% - (var(--desktop-width) / 2)) / 2);
+}
+.wse-columns-3 > .wse-column > .wse-column-inner {
+    width: calc(var(--desktop-width) / 3);
+    left: calc((100% - (var(--desktop-width) / 3)) / 2);
+}
+.wse-columns-4 > .wse-column > .wse-column-inner {
+    width: calc(var(--desktop-width) / 4);
+    left: calc((100% - (var(--desktop-width) / 4)) / 2);
+}
+/* factor */
+.wse-column.wse-column-factor > .wse-column-inner {
+    width: calc(var(--desktop-width) / (100 / var(--factor)));
+}
+/* center */
+.wse-column.wse-column-factor > .wse-column-inner:not(.left):not(.right) {
+    left: calc((100% - (var(--desktop-width) / (100 / var(--factor)))) / 2);
+}
+.wse-column.wse-column-factor {
+    flex-basis: calc(var(--factor-per) - var(--spacing-desktop));
+    min-width: auto;
+}
+/* spacing & padding */
+.wse-columns {
+    --spacing-desktop: 0%;
+    --padding-desktop: 0px;
+    padding: 0 var(--padding-desktop);
+    gap: var(--spacing-desktop);
+}
+.wse-columns-1 .wse-column:not(.wse-column-factor) {
+    flex-basis: calc((100% / 1) - var(--spacing-desktop));
+}
+.wse-columns-2 .wse-column:not(.wse-column-factor) {
+    flex-basis: calc((100% / 2) - var(--spacing-desktop));
+}
+.wse-columns-3 .wse-column:not(.wse-column-factor) {
+    flex-basis: calc((100% / 3) - var(--spacing-desktop));
+}
+.wse-columns-4 .wse-column:not(.wse-column-factor) {
+    flex-basis: calc((100% / 4) - var(--spacing-desktop));
+}
+/* left & right */
+.wse-columns > .wse-column > .wse-column-inner.left {
+  left: 0;
+}
+.wse-columns > .wse-column > .wse-column-inner.right {
+  left: auto;
+  right: 0;
+}
