@@ -892,15 +892,17 @@ section {
 }
 
 .quote-wrapper {
-    max-width: 700px;
+    max-width: 800px;
     margin: 0 auto;
-    padding: 3rem 2rem;
-    background: linear-gradient(135deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.05) 100%);
+    padding: 4rem 3rem;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(248, 248, 248, 0.9) 100%);
     border-radius: 0;
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+    box-shadow: 
+        0 25px 50px rgba(0, 0, 0, 0.15),
+        0 0 0 1px rgba(255, 255, 255, 0.1);
     position: relative;
     overflow: hidden;
-    border: 2px solid rgba(255, 255, 255, 0.3);
+    border: 2px solid rgba(0, 0, 0, 0.05);
     backdrop-filter: blur(20px);
 }
 
@@ -923,13 +925,14 @@ section {
 
 .quote-number {
     font-family: 'Playfair Display', serif;
-    font-size: 4rem;
+    font-size: 5rem;
     font-weight: 300;
     font-style: italic;
-    color: rgba(0, 0, 0, 0.1);
-    margin-bottom: 1rem;
+    color: rgba(0, 0, 0, 0.15);
+    margin-bottom: 1.5rem;
     line-height: 1;
     animation: numberFloat 6s ease-in-out infinite;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
 }
 
 @keyframes numberFloat {
@@ -939,27 +942,32 @@ section {
 
 .quote-text {
     font-family: 'Playfair Display', serif;
-    font-size: 1.4rem;
+    font-size: 1.6rem;
     font-weight: 400;
     font-style: italic;
-    line-height: 1.6;
+    line-height: 1.7;
     color: var(--primary-black);
-    margin-bottom: 1.5rem;
+    margin-bottom: 2rem;
     letter-spacing: 0.02em;
     position: relative;
     z-index: 2;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .quote-author {
     font-family: 'Inter', sans-serif;
-    font-size: 0.8rem;
+    font-size: 1rem;
     font-weight: 300;
     color: var(--accent-gray);
     letter-spacing: 0.1em;
     text-transform: uppercase;
     position: relative;
     z-index: 2;
-    opacity: 0.7;
+    opacity: 0.8;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
 }
 
 /* Mission Statement */

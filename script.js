@@ -283,51 +283,92 @@ function initializeQuoteAnimations() {
             }
         );
         
-        // Animate quote number
+        // Animate quote number with sophisticated entrance
         const quoteNumber = quoteSection.querySelector('.quote-number');
         if (quoteNumber) {
             gsap.fromTo(quoteNumber, 
                 {
                     opacity: 0,
-                    scale: 0.5,
-                    rotation: -10
+                    scale: 0.3,
+                    rotation: -15,
+                    y: 50
                 },
                 {
-                    opacity: 0.1,
+                    opacity: 0.15,
                     scale: 1,
                     rotation: 0,
-                    duration: 1,
+                    y: 0,
+                    duration: 1.5,
                     ease: 'power3.out',
                     scrollTrigger: {
                         trigger: quoteNumber,
-                        start: 'top 85%',
+                        start: 'top 80%',
                         toggleActions: 'play none none reverse'
                     }
                 }
             );
+            
+            // Add continuous subtle animation
+            gsap.to(quoteNumber, {
+                y: -8,
+                duration: 3,
+                ease: 'power2.inOut',
+                yoyo: true,
+                repeat: -1
+            });
         }
         
-        // Animate quote text word by word
+        // Animate quote text with sophisticated word-by-word reveal
         const quoteText = quoteSection.querySelector('.quote-text');
         if (quoteText) {
             const words = quoteText.textContent.split(' ');
             quoteText.innerHTML = words.map(word => `<span class="word">${word}</span>`).join(' ');
             
-            gsap.fromTo(quoteText.querySelectorAll('.word'), 
+            // Set initial state
+            gsap.set(quoteText.querySelectorAll('.word'), {
+                opacity: 0,
+                y: 30,
+                rotationX: 90,
+                transformOrigin: '50% 50% -50px'
+            });
+            
+            // Animate words in with sophisticated timing
+            gsap.to(quoteText.querySelectorAll('.word'), {
+                opacity: 1,
+                y: 0,
+                rotationX: 0,
+                duration: 0.8,
+                stagger: {
+                    amount: 1.2,
+                    from: 'start'
+                },
+                ease: 'power3.out',
+                scrollTrigger: {
+                    trigger: quoteText,
+                    start: 'top 85%',
+                    toggleActions: 'play none none reverse'
+                }
+            });
+        }
+        
+        // Animate quote author with elegant entrance
+        const quoteAuthor = quoteSection.querySelector('.quote-author');
+        if (quoteAuthor) {
+            gsap.fromTo(quoteAuthor, 
                 {
                     opacity: 0,
-                    y: 15,
-                    rotationX: 45
+                    y: 20,
+                    scale: 0.8
                 },
                 {
-                    opacity: 1,
+                    opacity: 0.8,
                     y: 0,
-                    rotationX: 0,
-                    duration: 0.5,
-                    stagger: 0.08,
-                    ease: 'power2.out',
+                    scale: 1,
+                    duration: 1,
+                    ease: 'power3.out',
+                    delay: 0.5,
                     scrollTrigger: {
-                        trigger: quoteText,
+                        trigger: quoteAuthor,
                         start: 'top 85%',
                         toggleActions: 'play none none reverse'
                     }
