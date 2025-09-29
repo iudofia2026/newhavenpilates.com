@@ -973,96 +973,266 @@ section {
     text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
 }
 
-/* Mission Statement */
-.mission-statement {
-    margin: 4rem 0;
-    text-align: center;
-}
-
-.mission-content {
-    max-width: 900px;
-    margin: 0 auto;
-    padding: 3rem 2rem;
-    background: linear-gradient(135deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.05) 100%);
-    color: var(--primary-black);
-    border-radius: 0;
+/* Floating Mission Text - Inspired by Concrete Club Studio */
+.floating-mission-text {
     position: relative;
+    height: 100vh;
+    width: 100%;
     overflow: hidden;
-    border: 2px solid rgba(255, 255, 255, 0.3);
-    backdrop-filter: blur(20px);
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+    margin: 4rem 0;
+    background: linear-gradient(135deg, rgba(248, 248, 248, 0.3) 0%, rgba(255, 255, 255, 0.1) 100%);
+    backdrop-filter: blur(10px);
+    border-radius: 0;
 }
 
-.mission-content::before {
-    content: '';
+.floating-text-element {
     position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grain" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="25" cy="25" r="1" fill="white" opacity="0.1"/><circle cx="75" cy="75" r="1" fill="white" opacity="0.1"/><circle cx="50" cy="10" r="0.5" fill="white" opacity="0.1"/><circle cx="10" cy="60" r="0.5" fill="white" opacity="0.1"/><circle cx="90" cy="40" r="0.5" fill="white" opacity="0.1"/></pattern></defs><rect width="100" height="100" fill="url(%23grain)"/></svg>');
-    opacity: 0.3;
-    animation: grainMove 20s linear infinite;
-}
-
-@keyframes grainMove {
-    0% { transform: translate(0, 0); }
-    100% { transform: translate(-100px, -100px); }
-}
-
-.mission-icon {
-    margin-bottom: 1.5rem;
-    animation: missionPulse 3s ease-in-out infinite;
-}
-
-.mission-icon .icon-circle {
-    width: 70px;
-    height: 70px;
-    border-radius: 50%;
-    background: linear-gradient(135deg, rgba(255, 255, 255, 0.2) 0%, rgba(255, 255, 255, 0.1) 100%);
-    border: 2px solid rgba(0, 0, 0, 0.1);
+    width: 100%;
+    height: 100%;
     display: flex;
+    flex-wrap: wrap;
     align-items: center;
     justify-content: center;
-    margin: 0 auto;
-    backdrop-filter: blur(20px);
-    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+    gap: 2rem;
+    padding: 2rem;
+    opacity: 0;
+    transform: scale(0.8);
+    transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.mission-icon .icon-inner {
-    font-size: 1.8rem;
-    color: var(--primary-black);
-    font-weight: 400;
-    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+.floating-text-element.active {
+    opacity: 1;
+    transform: scale(1);
 }
 
-@keyframes missionPulse {
-    0%, 100% { transform: scale(1) rotate(0deg); }
-    50% { transform: scale(1.1) rotate(5deg); }
+.floating-text-element:nth-child(1) {
+    top: 0;
+    left: 0;
+    animation-delay: 0s;
 }
 
-.mission-title {
+.floating-text-element:nth-child(2) {
+    top: 0;
+    left: 0;
+    animation-delay: 3s;
+}
+
+.floating-word {
+    display: inline-block;
     font-family: 'Playfair Display', serif;
-    font-size: 2.2rem;
+    font-size: clamp(2rem, 4vw, 4rem);
     font-weight: 400;
     font-style: italic;
-    margin-bottom: 1rem;
+    color: var(--primary-black);
+    opacity: 0;
+    transform: translateY(50px) rotateX(90deg);
+    transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+    text-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
     letter-spacing: 0.02em;
     position: relative;
-    z-index: 2;
-    color: var(--primary-black);
+    cursor: pointer;
+    user-select: none;
 }
 
-.mission-description {
-    font-family: 'Inter', sans-serif;
-    font-size: 1.2rem;
-    font-weight: 300;
-    line-height: 1.6;
-    opacity: 0.8;
-    letter-spacing: 0.01em;
-    position: relative;
-    z-index: 2;
-    color: var(--primary-black);
+.floating-word:hover {
+    transform: translateY(-10px) scale(1.1);
+    color: var(--accent-gray);
+    text-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
+}
+
+.floating-word.animate {
+    opacity: 1;
+    transform: translateY(0) rotateX(0deg);
+}
+
+/* Individual word positioning for organic layout */
+.floating-text-element:nth-child(1) .floating-word:nth-child(1) { 
+    position: absolute; 
+    top: 15%; 
+    left: 10%; 
+    animation-delay: 0.1s; 
+}
+.floating-text-element:nth-child(1) .floating-word:nth-child(2) { 
+    position: absolute; 
+    top: 25%; 
+    left: 25%; 
+    animation-delay: 0.2s; 
+}
+.floating-text-element:nth-child(1) .floating-word:nth-child(3) { 
+    position: absolute; 
+    top: 20%; 
+    left: 45%; 
+    animation-delay: 0.3s; 
+}
+.floating-text-element:nth-child(1) .floating-word:nth-child(4) { 
+    position: absolute; 
+    top: 30%; 
+    left: 65%; 
+    animation-delay: 0.4s; 
+}
+.floating-text-element:nth-child(1) .floating-word:nth-child(5) { 
+    position: absolute; 
+    top: 40%; 
+    left: 80%; 
+    animation-delay: 0.5s; 
+}
+.floating-text-element:nth-child(1) .floating-word:nth-child(6) { 
+    position: absolute; 
+    top: 50%; 
+    left: 15%; 
+    animation-delay: 0.6s; 
+}
+.floating-text-element:nth-child(1) .floating-word:nth-child(7) { 
+    position: absolute; 
+    top: 60%; 
+    left: 35%; 
+    animation-delay: 0.7s; 
+}
+.floating-text-element:nth-child(1) .floating-word:nth-child(8) { 
+    position: absolute; 
+    top: 70%; 
+    left: 55%; 
+    animation-delay: 0.8s; 
+}
+.floating-text-element:nth-child(1) .floating-word:nth-child(9) { 
+    position: absolute; 
+    top: 80%; 
+    left: 75%; 
+    animation-delay: 0.9s; 
+}
+
+.floating-text-element:nth-child(2) .floating-word:nth-child(1) { 
+    position: absolute; 
+    top: 20%; 
+    left: 20%; 
+    animation-delay: 0.1s; 
+}
+.floating-text-element:nth-child(2) .floating-word:nth-child(2) { 
+    position: absolute; 
+    top: 30%; 
+    left: 40%; 
+    animation-delay: 0.2s; 
+}
+.floating-text-element:nth-child(2) .floating-word:nth-child(3) { 
+    position: absolute; 
+    top: 25%; 
+    left: 60%; 
+    animation-delay: 0.3s; 
+}
+.floating-text-element:nth-child(2) .floating-word:nth-child(4) { 
+    position: absolute; 
+    top: 35%; 
+    left: 80%; 
+    animation-delay: 0.4s; 
+}
+.floating-text-element:nth-child(2) .floating-word:nth-child(5) { 
+    position: absolute; 
+    top: 45%; 
+    left: 10%; 
+    animation-delay: 0.5s; 
+}
+.floating-text-element:nth-child(2) .floating-word:nth-child(6) { 
+    position: absolute; 
+    top: 55%; 
+    left: 30%; 
+    animation-delay: 0.6s; 
+}
+.floating-text-element:nth-child(2) .floating-word:nth-child(7) { 
+    position: absolute; 
+    top: 65%; 
+    left: 50%; 
+    animation-delay: 0.7s; 
+}
+.floating-text-element:nth-child(2) .floating-word:nth-child(8) { 
+    position: absolute; 
+    top: 75%; 
+    left: 70%; 
+    animation-delay: 0.8s; 
+}
+.floating-text-element:nth-child(2) .floating-word:nth-child(9) { 
+    position: absolute; 
+    top: 85%; 
+    left: 15%; 
+    animation-delay: 0.9s; 
+}
+.floating-text-element:nth-child(2) .floating-word:nth-child(10) { 
+    position: absolute; 
+    top: 15%; 
+    left: 5%; 
+    animation-delay: 1.0s; 
+}
+.floating-text-element:nth-child(2) .floating-word:nth-child(11) { 
+    position: absolute; 
+    top: 40%; 
+    left: 90%; 
+    animation-delay: 1.1s; 
+}
+.floating-text-element:nth-child(2) .floating-word:nth-child(12) { 
+    position: absolute; 
+    top: 10%; 
+    left: 85%; 
+    animation-delay: 1.2s; 
+}
+.floating-text-element:nth-child(2) .floating-word:nth-child(13) { 
+    position: absolute; 
+    top: 90%; 
+    left: 40%; 
+    animation-delay: 1.3s; 
+}
+
+/* Continuous floating animation */
+@keyframes wordFloat {
+    0%, 100% {
+        transform: translateY(0) rotate(0deg) scale(1);
+    }
+    25% {
+        transform: translateY(-15px) rotate(2deg) scale(1.05);
+    }
+    50% {
+        transform: translateY(-8px) rotate(-1deg) scale(0.98);
+    }
+    75% {
+        transform: translateY(-12px) rotate(1deg) scale(1.02);
+    }
+}
+
+.floating-word.continuous-float {
+    animation: wordFloat 8s ease-in-out infinite;
+}
+
+/* Glow effect for active words */
+.floating-word::before {
+    content: '';
+    position: absolute;
+    top: -5px;
+    left: -5px;
+    right: -5px;
+    bottom: -5px;
+    background: radial-gradient(circle, rgba(0, 0, 0, 0.1) 0%, transparent 70%);
+    border-radius: 50%;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    z-index: -1;
+}
+
+.floating-word:hover::before {
+    opacity: 1;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .floating-mission-text {
+        height: 80vh;
+    }
+    
+    .floating-word {
+        font-size: clamp(1.5rem, 3vw, 2.5rem);
+    }
+    
+    .floating-text-element {
+        gap: 1rem;
+        padding: 1rem;
+    }
 }
 
 .classes-grid {

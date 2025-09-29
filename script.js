@@ -256,10 +256,10 @@ function initializeNavigation() {
     });
 }
 
-// Enhanced Quote and Mission Animations
+// Enhanced Quote and Floating Mission Text Animations
 function initializeQuoteAnimations() {
     const quoteSection = document.querySelector('.quote-section');
-    const missionStatement = document.querySelector('.mission-statement');
+    const floatingMissionText = document.querySelector('.floating-mission-text');
     
     // Quote section animation
     if (quoteSection) {
@@ -377,99 +377,119 @@ function initializeQuoteAnimations() {
         }
     }
     
-    // Mission statement animation
-    if (missionStatement) {
-        gsap.fromTo(missionStatement, 
-            {
-                opacity: 0,
-                y: 80,
-                scale: 0.9
-            },
-            {
-                opacity: 1,
-                y: 0,
-                scale: 1,
-                duration: 1,
-                ease: 'power3.out',
-                scrollTrigger: {
-                    trigger: missionStatement,
-                    start: 'top 80%',
-                    toggleActions: 'play none none reverse'
-                }
-            }
-        );
+    // Floating Mission Text Animation - Inspired by Concrete Club Studio
+    if (floatingMissionText) {
+        const floatingElements = floatingMissionText.querySelectorAll('.floating-text-element');
+        const allWords = floatingMissionText.querySelectorAll('.floating-word');
         
-        // Animate mission icon with elegant entrance
-        const missionIcon = missionStatement.querySelector('.mission-icon');
-        if (missionIcon) {
-            gsap.fromTo(missionIcon, 
+        // Set initial state for all words
+        gsap.set(allWords, {
+            opacity: 0,
+            y: 100,
+            rotationX: 90,
+            scale: 0.5,
+            transformOrigin: '50% 50% -100px'
+        });
+        
+        // Animate floating elements with sophisticated timing
+        floatingElements.forEach((element, elementIndex) => {
+            const words = element.querySelectorAll('.floating-word');
+            
+            // Show the element
+            gsap.fromTo(element, 
                 {
                     opacity: 0,
-                    scale: 0.5,
-                    rotation: -10
+                    scale: 0.8
                 },
                 {
                     opacity: 1,
+                    scale: 1,
+                    duration: 1,
+                    ease: 'power3.out',
+                    scrollTrigger: {
+                        trigger: floatingMissionText,
+                        start: 'top 80%',
+                        toggleActions: 'play none none reverse'
+                    },
+                    onComplete: () => {
+                        // Animate words in this element
+                        gsap.to(words, {
+                            opacity: 1,
+                            y: 0,
+                            rotationX: 0,
+                            scale: 1,
+                            duration: 1.2,
+                            stagger: {
+                                amount: 1.5,
+                                from: 'random'
+                            },
+                            ease: 'power3.out',
+                            delay: elementIndex * 0.5
+                        });
+                        
+                        // Add continuous floating animation after initial reveal
+                        setTimeout(() => {
+                            words.forEach((word, wordIndex) => {
+                                gsap.to(word, {
+                                    y: `random(-20, 20)`,
+                                    rotation: `random(-5, 5)`,
+                                    scale: `random(0.95, 1.05)`,
+                                    duration: `random(3, 6)`,
+                                    ease: 'power2.inOut',
+                                    yoyo: true,
+                                    repeat: -1,
+                                    delay: wordIndex * 0.1
+                                });
+                            });
+                        }, 2000);
+                    }
+                }
+            );
+        });
+        
+        // Add interactive hover effects
+        allWords.forEach(word => {
+            word.addEventListener('mouseenter', () => {
+                gsap.to(word, {
+                    scale: 1.2,
+                    rotation: 5,
+                    y: -15,
+                    duration: 0.3,
+                    ease: 'power2.out'
+                });
+            });
+            
+            word.addEventListener('mouseleave', () => {
+                gsap.to(word, {
                     scale: 1,
                     rotation: 0,
-                    duration: 1,
-                    ease: 'power3.out',
-                    scrollTrigger: {
-                        trigger: missionIcon,
-                        start: 'top 85%',
-                        toggleActions: 'play none none reverse'
-                    }
-                }
-            );
-        }
-        
-        // Animate mission title with elegant fade-in and scale
-        const missionTitle = missionStatement.querySelector('.mission-title');
-        if (missionTitle) {
-            gsap.fromTo(missionTitle, 
-                {
-                    opacity: 0,
-                    y: 30,
-                    scale: 0.95
-                },
-                {
-                    opacity: 1,
                     y: 0,
-                    scale: 1,
-                    duration: 1.2,
-                    ease: 'power3.out',
-                    delay: 0.3,
-                    scrollTrigger: {
-                        trigger: missionTitle,
-                        start: 'top 85%',
-                        toggleActions: 'play none none reverse'
-                    }
-                }
-            );
-        }
+                    duration: 0.3,
+                    ease: 'power2.out'
+                });
+            });
+        });
         
-        // Animate mission description with elegant fade-in
-        const missionDescription = missionStatement.querySelector('.mission-description');
-        if (missionDescription) {
-            gsap.fromTo(missionDescription, 
-                {
-                    opacity: 0,
-                    y: 20
-                },
-                {
-                    opacity: 0.8,
-                    y: 0,
-                    duration: 1,
-                    ease: 'power3.out',
-                    delay: 0.6,
-                    scrollTrigger: {
-                        trigger: missionDescription,
-                        start: 'top 85%',
-                        toggleActions: 'play none none reverse'
-                    }
-                }
-            );
-        }
+        // Add scroll-triggered parallax effect
+        gsap.to(floatingMissionText, {
+            yPercent: -20,
+            ease: 'none',
+            scrollTrigger: {
+                trigger: floatingMissionText,
+                start: 'top bottom',
+                end: 'bottom top',
+                scrub: true
+            }
+        });
+        
+        // Add subtle background animation
+        gsap.to(floatingMissionText, {
+            background: 'linear-gradient(135deg, rgba(248, 248, 248, 0.5) 0%, rgba(255, 255, 255, 0.2) 100%)',
+            duration: 4,
+            ease: 'power2.inOut',
+            yoyo: true,
+            repeat: -1
+        });
     }
 }
 
