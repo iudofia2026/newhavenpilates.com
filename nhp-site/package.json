@@ -1,0 +1,32 @@
+{
+  "name": "new-haven-pilates-website",
+  "version": "1.0.0",
+  "description": "Modern responsive website for New Haven Pilates studio",
+  "main": "index.html",
+  "scripts": {
+    "start": "python -m http.server 8000",
+    "serve": "npx http-server -p 8000",
+    "build": "echo 'Static site - no build process needed'",
+    "validate": "echo 'Run HTML/CSS validation tools'"
+  },
+  "keywords": [
+    "pilates",
+    "studio",
+    "website",
+    "responsive",
+    "tailwind",
+    "vanilla-js"
+  ],
+  "author": "New Haven Pilates",
+  "license": "MIT",
+  "devDependencies": {},
+  "dependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/newhavenpilates/website"
+  },
+  "bugs": {
+    "url": "https://github.com/newhavenpilates/website/issues"
+  },
+  "homepage": "https://newhavenpilates.com"
+}
