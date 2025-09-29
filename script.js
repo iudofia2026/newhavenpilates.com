@@ -53,25 +53,6 @@ function initializeAnimations() {
         );
     });
 
-    // Hero Quote Overlay Animation - Initial Container
-    const heroQuoteOverlay = document.querySelector('.hero-quote-overlay');
-    if (heroQuoteOverlay) {
-        gsap.fromTo(heroQuoteOverlay, 
-            {
-                opacity: 0,
-                scale: 0.8,
-                y: 50
-            },
-            {
-                opacity: 1,
-                scale: 1,
-                y: 0,
-                duration: 1.2,
-                delay: 2.5,
-                ease: 'power3.out'
-            }
-        );
-    }
 
     // Button hover animation
     const ctaButton = document.querySelector('.cta-button');
@@ -260,7 +241,7 @@ function initializeNavigation() {
 function initializeScrollProgression() {
     const progressionItems = document.querySelectorAll('.progression-item');
     const connectors = document.querySelectorAll('.progression-connector');
-    const attribution = document.querySelector('.hero-quote-attribution');
+    const attribution = document.querySelector('.progression-attribution');
     
     // Create scroll triggers for each progression item
     progressionItems.forEach((item, index) => {
