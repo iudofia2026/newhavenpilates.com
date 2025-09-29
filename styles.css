@@ -668,62 +668,336 @@ html {
     }
 }
 
-/* Hero Quote Section */
-.hero-quote-section {
+/* Creative Animated Number Progression - Hero Quote Overlay */
+.hero-quote-overlay {
     position: absolute;
-    bottom: 120px;
-    left: 0;
-    right: 0;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
     z-index: 2;
+    opacity: 0;
+    pointer-events: none;
 }
 
-.quote-container {
-    max-width: 600px;
-    margin: 0 auto;
-    padding: 0 var(--container-padding);
+.hero-quote-container {
     text-align: center;
+    max-width: 900px;
+    padding: 3rem 2rem;
+    background: rgba(255, 255, 255, 0.03);
+    backdrop-filter: blur(30px);
+    border-radius: 30px;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    box-shadow: 
+        0 30px 60px rgba(0, 0, 0, 0.4),
+        inset 0 1px 0 rgba(255, 255, 255, 0.1);
 }
 
-.quote-text {
-    font-family: var(--font-elegant);
-    font-size: clamp(1rem, 2.5vw, 1.4rem);
+/* Number Progression List */
+.number-progression {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+    margin-bottom: 2.5rem;
+    position: relative;
+}
+
+.progression-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    opacity: 0;
+    transform: translateY(50px) scale(0.8);
+    transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.progression-item.animate {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+}
+
+/* Animated Number Circles */
+.number-circle {
+    position: relative;
+    width: 120px;
+    height: 120px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.05);
+    border: 2px solid rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(20px);
+    overflow: hidden;
+}
+
+.number {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.5rem;
     font-weight: 400;
     font-style: italic;
-    line-height: 1.6;
-    margin-bottom: 0.5rem;
-    opacity: 0;
-    transform: translateY(30px);
     color: rgba(255, 255, 255, 0.9);
-    text-shadow: 
-        0 2px 10px rgba(0, 0, 0, 0.5),
-        0 4px 20px rgba(0, 0, 0, 0.3),
-        0 0 30px rgba(255, 255, 255, 0.1);
-    animation: quoteGlow 7s ease-in-out infinite;
+    z-index: 3;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
 }
 
-@keyframes quoteGlow {
-    0%, 100% {
-        text-shadow: 
-            0 2px 10px rgba(0, 0, 0, 0.5),
-            0 4px 20px rgba(0, 0, 0, 0.3),
-            0 0 30px rgba(255, 255, 255, 0.1);
+/* Animated Rings */
+.number-ring {
+    position: absolute;
+    top: -5px;
+    left: -5px;
+    right: -5px;
+    bottom: -5px;
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    border-radius: 50%;
+    animation: ringRotate 8s linear infinite;
+}
+
+.number-ring::before {
+    content: '';
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 50%;
+    animation: ringRotate 12s linear infinite reverse;
+}
+
+@keyframes ringRotate {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Pulse Effect */
+.number-pulse {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.3) 0%, transparent 70%);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    animation: pulseExpand 3s ease-in-out infinite;
+}
+
+@keyframes pulseExpand {
+    0% {
+        width: 0;
+        height: 0;
+        opacity: 1;
     }
     50% {
-        text-shadow: 
-            0 3px 15px rgba(0, 0, 0, 0.7),
-            0 6px 30px rgba(0, 0, 0, 0.5),
-            0 0 50px rgba(255, 255, 255, 0.2);
+        width: 200px;
+        height: 200px;
+        opacity: 0.3;
+    }
+    100% {
+        width: 300px;
+        height: 300px;
+        opacity: 0;
     }
 }
 
-.quote-author {
-    font-family: var(--font-accent);
-    font-size: clamp(0.9rem, 2vw, 1.1rem);
+/* Progression Text */
+.progression-text {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.3rem;
+}
+
+.progression-word {
+    font-family: 'Inter', sans-serif;
+    font-size: clamp(0.9rem, 1.5vw, 1.1rem);
     font-weight: 300;
+    color: rgba(255, 255, 255, 0.8);
     opacity: 0;
     transform: translateY(20px);
+    transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+}
+
+.progression-word.animate {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Connector Lines */
+.progression-connector {
+    position: relative;
+    width: 60px;
+    height: 2px;
+    opacity: 0;
+    transform: scaleX(0);
+    transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.progression-connector.animate {
+    opacity: 1;
+    transform: scaleX(1);
+}
+
+.connector-line {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, 
+        transparent 0%, 
+        rgba(255, 255, 255, 0.3) 20%, 
+        rgba(255, 255, 255, 0.6) 50%, 
+        rgba(255, 255, 255, 0.3) 80%, 
+        transparent 100%);
+    transform: translateY(-50%);
+    animation: connectorFlow 4s ease-in-out infinite;
+}
+
+.connector-dot {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 6px;
+    height: 6px;
+    background: rgba(255, 255, 255, 0.8);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    animation: dotPulse 2s ease-in-out infinite;
+}
+
+@keyframes connectorFlow {
+    0%, 100% {
+        opacity: 0.3;
+        transform: translateY(-50%) scaleX(1);
+    }
+    50% {
+        opacity: 0.8;
+        transform: translateY(-50%) scaleX(1.1);
+    }
+}
+
+@keyframes dotPulse {
+    0%, 100% {
+        transform: translate(-50%, -50%) scale(1);
+        opacity: 0.8;
+    }
+    50% {
+        transform: translate(-50%, -50%) scale(1.5);
+        opacity: 1;
+    }
+}
+
+/* Quote Attribution */
+.hero-quote-attribution {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.hero-quote-attribution.animate {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.attribution-text {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1rem, 2vw, 1.3rem);
+    font-weight: 300;
+    font-style: italic;
     color: rgba(255, 255, 255, 0.7);
-    letter-spacing: 0.02em;
+    margin-bottom: 0.8rem;
+    line-height: 1.6;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+}
+
+.hero-quote-author {
+    font-family: var(--font-accent);
+    font-size: clamp(0.9rem, 1.5vw, 1.1rem);
+    font-weight: 300;
+    color: rgba(255, 255, 255, 0.6);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+}
+
+/* Glow effect for the entire container */
+.hero-quote-container::before {
+    content: '';
+    position: absolute;
+    top: -3px;
+    left: -3px;
+    right: -3px;
+    bottom: -3px;
+    background: linear-gradient(45deg, 
+        rgba(255, 255, 255, 0.1) 0%, 
+        rgba(255, 255, 255, 0.05) 25%, 
+        rgba(255, 255, 255, 0.1) 50%, 
+        rgba(255, 255, 255, 0.05) 75%, 
+        rgba(255, 255, 255, 0.1) 100%);
+    border-radius: 33px;
+    z-index: -1;
+    opacity: 0;
+    animation: containerGlow 8s ease-in-out infinite;
+}
+
+@keyframes containerGlow {
+    0%, 100% {
+        opacity: 0;
+        transform: scale(1);
+    }
+    50% {
+        opacity: 1;
+        transform: scale(1.01);
+    }
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .hero-quote-container {
+        padding: 2rem 1rem;
+        margin: 0 1rem;
+    }
+    
+    .number-progression {
+        flex-direction: column;
+        gap: 1.5rem;
+    }
+    
+    .progression-connector {
+        width: 2px;
+        height: 40px;
+        transform: scaleY(0);
+    }
+    
+    .progression-connector.animate {
+        transform: scaleY(1);
+    }
+    
+    .connector-line {
+        width: 1px;
+        height: 100%;
+        background: linear-gradient(180deg, 
+            transparent 0%, 
+            rgba(255, 255, 255, 0.3) 20%, 
+            rgba(255, 255, 255, 0.6) 50%, 
+            rgba(255, 255, 255, 0.3) 80%, 
+            transparent 100%);
+        transform: translateX(-50%);
+    }
+    
+    .number-circle {
+        width: 100px;
+        height: 100px;
+    }
+    
+    .number {
+        font-size: 2rem;
+    }
 }
 
 .hero-cta {
@@ -888,90 +1162,6 @@ section {
     backdrop-filter: blur(10px);
 }
 
-/* Elegant Quote Section */
-.quote-section {
-    margin: 2rem 0;
-    text-align: center;
-}
-
-.quote-wrapper {
-    max-width: 800px;
-    margin: 0 auto;
-    padding: 4rem 3rem;
-    background: linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(248, 248, 248, 0.9) 100%);
-    border-radius: 0;
-    box-shadow: 
-        0 25px 50px rgba(0, 0, 0, 0.15),
-        0 0 0 1px rgba(255, 255, 255, 0.1);
-    position: relative;
-    overflow: hidden;
-    border: 2px solid rgba(0, 0, 0, 0.05);
-    backdrop-filter: blur(20px);
-}
-
-.quote-wrapper::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: -100%;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(90deg, transparent, rgba(0, 0, 0, 0.03), transparent);
-    animation: shimmer 4s ease-in-out infinite;
-}
-
-@keyframes shimmer {
-    0% { left: -100%; }
-    50% { left: 100%; }
-    100% { left: 100%; }
-}
-
-.quote-number {
-    font-family: 'Playfair Display', serif;
-    font-size: 5rem;
-    font-weight: 300;
-    font-style: italic;
-    color: rgba(0, 0, 0, 0.15);
-    margin-bottom: 1.5rem;
-    line-height: 1;
-    animation: numberFloat 6s ease-in-out infinite;
-    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-}
-
-@keyframes numberFloat {
-    0%, 100% { transform: translateY(0) scale(1); opacity: 0.1; }
-    50% { transform: translateY(-5px) scale(1.05); opacity: 0.2; }
-}
-
-.quote-text {
-    font-family: 'Playfair Display', serif;
-    font-size: 1.6rem;
-    font-weight: 400;
-    font-style: italic;
-    line-height: 1.7;
-    color: var(--primary-black);
-    margin-bottom: 2rem;
-    letter-spacing: 0.02em;
-    position: relative;
-    z-index: 2;
-    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
-    max-width: 600px;
-    margin-left: auto;
-    margin-right: auto;
-}
-
-.quote-author {
-    font-family: 'Inter', sans-serif;
-    font-size: 1rem;
-    font-weight: 300;
-    color: var(--accent-gray);
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    position: relative;
-    z-index: 2;
-    opacity: 0.8;
-    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
-}
 
 /* Floating Mission Text - Inspired by Concrete Club Studio */
 .floating-mission-text {

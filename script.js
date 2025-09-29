@@ -52,26 +52,101 @@ function initializeAnimations() {
         );
     });
 
-    // Quote animations
-    const quoteElements = gsap.utils.toArray('.animate-quote, .animate-quote-author');
-    
-    quoteElements.forEach((element, index) => {
-        gsap.fromTo(element, 
+    // Hero Quote Overlay Animation
+    const heroQuoteOverlay = document.querySelector('.hero-quote-overlay');
+    if (heroQuoteOverlay) {
+        gsap.fromTo(heroQuoteOverlay, 
             {
                 opacity: 0,
-                y: 30,
-                scale: 0.95
+                scale: 0.8,
+                y: 50
             },
             {
                 opacity: 1,
-                y: 0,
                 scale: 1,
-                duration: 1,
-                delay: 2.5 + (index * 0.3),
-                ease: 'power2.out'
+                y: 0,
+                duration: 1.2,
+                delay: 2.5,
+                ease: 'power3.out',
+                onComplete: () => {
+                    // Animate progression items
+                    const progressionItems = document.querySelectorAll('.progression-item');
+                    const connectors = document.querySelectorAll('.progression-connector');
+                    const progressionWords = document.querySelectorAll('.progression-word');
+                    const attribution = document.querySelector('.hero-quote-attribution');
+                    
+                    // Animate progression items with stagger
+                    progressionItems.forEach((item, index) => {
+                        gsap.fromTo(item, 
+                            {
+                                opacity: 0,
+                                y: 50,
+                                scale: 0.8,
+                                rotation: -10
+                            },
+                            {
+                                opacity: 1,
+                                y: 0,
+                                scale: 1,
+                                rotation: 0,
+                                duration: 1,
+                                delay: index * 0.4,
+                                ease: 'power3.out',
+                                onComplete: () => {
+                                    item.classList.add('animate');
+                                    
+                                    // Animate words for this item
+                                    const words = item.querySelectorAll('.progression-word');
+                                    gsap.fromTo(words, 
+                                        {
+                                            opacity: 0,
+                                            y: 20,
+                                            scale: 0.9
+                                        },
+                                        {
+                                            opacity: 1,
+                                            y: 0,
+                                            scale: 1,
+                                            duration: 0.8,
+                                            stagger: 0.2,
+                                            ease: 'power2.out',
+                                            delay: 0.3
+                                        }
+                                    );
+                                    
+                                    // Animate connector after item
+                                    if (index < connectors.length) {
+                                        setTimeout(() => {
+                                            connectors[index].classList.add('animate');
+                                        }, 200);
+                                    }
+                                }
+                            }
+                        );
+                    });
+                    
+                    // Animate attribution
+                    setTimeout(() => {
+                        gsap.fromTo(attribution, 
+                            {
+                                opacity: 0,
+                                y: 30,
+                                scale: 0.95
+                            },
+                            {
+                                opacity: 1,
+                                y: 0,
+                                scale: 1,
+                                duration: 1,
+                                ease: 'power3.out'
+                            }
+                        );
+                        attribution.classList.add('animate');
+                    }, 2000);
+                }
             }
         );
-    });
+    }
 
     // Button hover animation
     const ctaButton = document.querySelector('.cta-button');
